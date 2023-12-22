@@ -2,7 +2,7 @@
   text-align: center;
 }
 
-.banner-bg-image{
+.banner-bg-image {
   background-image: url('./images/Child-smiling.jpg');
   background-size: cover;
   background-repeat: no-repeat;
@@ -40,6 +40,7 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }

@@ -4,6 +4,7 @@ import HomePageServices from '../Services/HomePageServices';
 import childSmileImg from '../../../images/Child-smiling.jpg';
 import '../../../App.css';
 import SmilesSection from '../SmilesSection/SmilesSection';
+import OurDantalTreatments from '../OurDantalTreatments/OurDantalTreatments';
 
 const Home = () => {
     return (
@@ -13,6 +14,7 @@ const Home = () => {
             </div>
             <HomePageServices></HomePageServices>
             <SmilesSection></SmilesSection>
+            <OurDantalTreatments></OurDantalTreatments>
         </div>
     );
 };
