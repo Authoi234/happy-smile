@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const SingleService = ({ service }) => {
     console.log(service);
@@ -11,6 +12,9 @@ const SingleService = ({ service }) => {
                     service.details ? service.details.slice(0, 130) + '....' : ''
                 }</p>
                 <p className="text-xl text-orange-400">Price: <del>{parseInt(service.price) - 30}$</del> {service.price}</p>
+                <div className="card-actions justify-end">
+                    <Link to={`/services/${service._id}`} className="btn btn-primary text-white">View Details</Link>
+                </div>
             </div>
         </div>
     );

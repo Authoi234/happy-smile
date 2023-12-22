@@ -2,6 +2,14 @@
   text-align: center;
 }
 
+.banner-bg-image{
+  background-image: url('./images/Child-smiling.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: top;
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
