@@ -21,7 +21,7 @@ const Services = () => {
                     services.map(service => <SingleService service={service} key={service._id}></SingleService>)
                 }
                 <div>
-                    <img className='w-1/5 rotate-90 absolute top-10 left-0' src={toolsImg} alt="" />
+                    <img className='w-1/6 rotate-90 absolute top-0 left-0' src={toolsImg} alt="" />
                 </div>
             </section>
         </div>

@@ -3,6 +3,7 @@ import Banner from '../Banner/Banner';
 import HomePageServices from '../Services/HomePageServices';
 import childSmileImg from '../../../images/Child-smiling.jpg';
 import '../../../App.css';
+import SmilesSection from '../SmilesSection/SmilesSection';
 
 const Home = () => {
     return (
@@ -11,6 +12,7 @@ const Home = () => {
                 <Banner></Banner>
             </div>
             <HomePageServices></HomePageServices>
+            <SmilesSection></SmilesSection>
         </div>
     );
 };
