@@ -1,7 +1,6 @@
 import React from 'react';
 import Banner from '../Banner/Banner';
 import HomePageServices from '../Services/HomePageServices';
-import childSmileImg from '../../../images/Child-smiling.jpg';
 import '../../../App.css';
 import SmilesSection from '../SmilesSection/SmilesSection';
 import OurDantalTreatments from '../OurDantalTreatments/OurDantalTreatments';
