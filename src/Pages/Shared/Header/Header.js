@@ -19,10 +19,10 @@ const Header = () => {
                         }
                     </ul>
                 </div>
-                <img src={img} className='w-14' alt="" />
-                <a href='/' className="btn btn-ghost text-xl"> Happy Smile</a>
+                <img src={img} className='w-14' alt="" data-aos="fade-left"/>
+                <a href='/' className="btn btn-ghost text-xl" data-aos="fade-right"> Happy Smile</a>
             </div>
-            <div className="navbar hidden lg:flex justify-start">
+            <div className="navbar hidden lg:flex justify-start" data-aos="fade-left" data-aos-anchor-placement="top-bottom">
                 <ul className="menu menu-horizontal px-1">
                     {
                         navbarMenu
@@ -30,7 +30,7 @@ const Header = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-                <a href='/' className="btn btn-neutral">Button</a>
+                <a href='/' className="btn btn-neutral" data-aos="zoom-in">Button</a>
             </div>
         </div>
     );
