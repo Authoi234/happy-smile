@@ -70,6 +70,7 @@ const Login = () => {
                         <p className='text-xl text-white font-bold'>
                             New To Happy Smile? Please <Link className="text-orange-600" to='/register'>Register</Link>
                         </p>
+                        
                     </form>
                 </div>
             </div>

@@ -1,11 +1,13 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import img from '../../../images/favicon.png';
+import { AuthContext } from '../../../Context/AuthContextProvider/AuthContextProvider';
 
 const Header = () => {
+    const { user } = useContext(AuthContext)
+
     const navbarMenu = [
         <li key={1}><a href='/'>Home</a></li>,
-        <li key={2}><a href='/Login'>Login</a></li>,
-        <li key={3}><a href='/register'>Register</a></li>
+        user ? <li key={2}></li> : <><li key={2}><a href='/Login'>Login</a></li><li key={3}><a href='/register'>Register</a></li></>
     ]
 
     return (
@@ -21,7 +23,7 @@ const Header = () => {
                         }
                     </ul>
                 </div>
-                <img src={img} className='w-14' alt="" data-aos="fade-left"/>
+                <img src={img} className='w-14' alt="" data-aos="fade-left" />
                 <a href='/' className="btn btn-ghost text-xl" data-aos="fade-right"> Happy Smile</a>
             </div>
             <div className="navbar hidden lg:flex justify-start" data-aos="fade-left" data-aos-anchor-placement="top-bottom">
@@ -32,6 +34,13 @@ const Header = () => {
                 </ul>
             </div>
             <div className="navbar-end">
+                {
+                    user ? <>
+                        <div className='mask mask-circle tooltip tooltip-left' data-tip={user.displayName}>
+                            <img className='rounded-full w-20 mx-2' src={user.photoURL} alt="" />
+                        </div>
+                    </> : ""
+                }
                 <a href='/' className="btn btn-neutral" data-aos="zoom-in">Button</a>
             </div>
         </div>
