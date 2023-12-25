@@ -3,9 +3,10 @@ import { FaEyeSlash } from "react-icons/fa6";
 import { FaEye } from "react-icons/fa6";
 import { AuthContext } from '../../Context/AuthContextProvider/AuthContextProvider';
 import { Link } from 'react-router-dom';
+import { FaGoogle } from "react-icons/fa6";
 
 const Login = () => {
-    const { EmailPasswordSignIn } = useContext(AuthContext);
+    const { EmailPasswordSignIn, googleSignIn } = useContext(AuthContext);
     const [clicked, setClicked] = useState(false);
     const [inputType, setInputType] = useState('password');
     const [icon, setIcon] = useState(<FaEyeSlash></FaEyeSlash>);
@@ -13,15 +14,28 @@ const Login = () => {
 
     const handleLogin = event => {
         event.preventDefault();
-        const email = event.target.email.value;
-        const password = event.target.password.value;
+        const form = event.target;
+        const email = form.email.value;
+        const password = form.password.value;
         EmailPasswordSignIn(email, password)
             .then(result => {
                 console.log(result.user);
+                form.reset();
             })
             .catch(err => {
                 setError(err.message);
             })
+    }
+
+    const handleGoogleLogin = () => {
+        googleSignIn()
+        .then(result => {
+            const user = result.user;
+            console.log(user);
+        })
+        .catch(err => {
+            setError(err);
+        })
     }
 
     const handlePasswordVisible = () => {
@@ -70,7 +84,9 @@ const Login = () => {
                         <p className='text-xl text-white font-bold'>
                             New To Happy Smile? Please <Link className="text-orange-600" to='/register'>Register</Link>
                         </p>
-                        
+                        <div className='flex justify-center items-center my-2'>
+                            <FaGoogle onClick={handleGoogleLogin} className='cursor-pointer bg-blue-600 text-white text-4xl p-1 rounded-full hover:bg-white hover:text-blue-600 active:scale-90 transition-all'></FaGoogle>
+                        </div>
                     </form>
                 </div>
             </div>

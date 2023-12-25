@@ -36,8 +36,8 @@ const Header = () => {
             <div className="navbar-end">
                 {
                     user ? <>
-                        <div className='mask mask-circle tooltip tooltip-left' data-tip={user.displayName}>
-                            <img className='rounded-full w-20 mx-2' src={user.photoURL} alt="" />
+                       <div className="tooltip tooltip-left" data-tip={user.displayName}>
+                            <img className='mask mask-circle mx-2 w-14' src={user.photoURL} alt="" />
                         </div>
                     </> : ""
                 }
