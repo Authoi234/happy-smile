@@ -1,5 +1,5 @@
 import React, { createContext, useEffect, useState } from 'react';
-import { createUserWithEmailAndPassword, getAuth,  GoogleAuthProvider, onAuthStateChanged, signInWithEmailAndPassword } from 'firebase/auth';
+import { createUserWithEmailAndPassword, getAuth, GoogleAuthProvider, onAuthStateChanged, signInWithEmailAndPassword, updateProfile } from 'firebase/auth';
 import app from '../../firebase/firebase.config';
 
 export const AuthContext = createContext();
@@ -7,21 +7,29 @@ export const AuthContext = createContext();
 const auth = getAuth(app);
 const googleProvider = new GoogleAuthProvider();
 
-const AuthContextProvider = ({children}) => {
+const AuthContextProvider = ({ children }) => {
     const [user, setUser] = useState(null);
+    const [loading, setLoading] = useState(true);
 
     const EmailPasswordSignIn = (email, password) => {
+        setLoading(true);
         return signInWithEmailAndPassword(auth, email, password);
     }
 
     const EmailPasswordRegister = (email, password) => {
+        setLoading(true);
         return createUserWithEmailAndPassword(auth, email, password);
+    }
+
+    const updateUser = (profile) => {
+        return updateProfile(auth.currentUser, profile);
     }
 
     useEffect(() => {
         const unsubcribe = onAuthStateChanged(auth, currentUser => {
             console.log(currentUser);
             setUser(currentUser);
+            setTimeout(() => setLoading(false), 3000)
         })
         return () => {
             return unsubcribe;
@@ -30,7 +38,10 @@ const AuthContextProvider = ({children}) => {
 
     const authInfo = {
         EmailPasswordSignIn,
-        EmailPasswordRegister
+        EmailPasswordRegister,
+        updateUser,
+        user,
+        loading
     }
 
     return (

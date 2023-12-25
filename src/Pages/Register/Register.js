@@ -5,7 +5,7 @@ import { AuthContext } from '../../Context/AuthContextProvider/AuthContextProvid
 import { Link } from 'react-router-dom';
 
 const Register = () => {
-    const { EmailPasswordRegister } = useContext(AuthContext);
+    const { EmailPasswordRegister, updateUser } = useContext(AuthContext);
     const [clicked, setClicked] = useState(false);
     const [inputType, setInputType] = useState('password');
     const [icon, setIcon] = useState(<FaEyeSlash></FaEyeSlash>);
@@ -13,15 +13,30 @@ const Register = () => {
 
     const handleRegister = event => {
         event.preventDefault();
+        const name = event.target.name.value;
+        const photoURL = event.target.photoURL.value;
         const email = event.target.email.value;
         const password = event.target.password.value;
+
         EmailPasswordRegister(email, password)
             .then(result => {
+                handleUpdateUserProfile(name, photoURL);
                 console.log(result.user);
             })
             .catch(err => {
                 setError(err.message);
             })
+    }
+
+    const handleUpdateUserProfile = (name, photoURL) => {
+        const profile = {
+            displayName: name,
+            photoURL: photoURL
+        }
+
+        updateUser(profile)
+            .then(() => {  })
+            .catch((err) => console.error(err))
     }
 
     const handlePasswordVisible = () => {
@@ -52,6 +67,12 @@ const Register = () => {
                                 <span className="label-text">Name</span>
                             </label>
                             <input type="text" placeholder="Name" name='name' className="input input-bordered text-green-200" required />
+                        </div>
+                        <div className="form-control">
+                            <label className="label">
+                                <span className="label-text">Photo URL</span>
+                            </label>
+                            <input type="text" placeholder="PhotoURL" name='photoURL' className="input input-bordered text-green-200" required />
                         </div>
                         <div className="form-control">
                             <label className="label">
