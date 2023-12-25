@@ -36,7 +36,7 @@ const Header = () => {
             <div className="navbar-end">
                 {
                     user ? <>
-                       <div className="tooltip tooltip-left" data-tip={user.displayName}>
+                       <div className="tooltip tooltip-left flex items-center mx-3" data-tip={user.displayName}>
                             <img className='mask mask-circle mx-2 w-14' src={user.photoURL} alt="" />
                         </div>
                     </> : ""
