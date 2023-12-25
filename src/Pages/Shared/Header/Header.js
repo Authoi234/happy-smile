@@ -3,8 +3,9 @@ import img from '../../../images/favicon.png';
 
 const Header = () => {
     const navbarMenu = [
-        <li><a href='/'>Home</a></li>,
-        <li><a href='/Login'>Login</a></li>
+        <li key={1}><a href='/'>Home</a></li>,
+        <li key={2}><a href='/Login'>Login</a></li>,
+        <li key={3}><a href='/register'>Register</a></li>
     ]
 
     return (
