@@ -3,7 +3,8 @@ import img from '../../../images/favicon.png';
 
 const Header = () => {
     const navbarMenu = [
-        <li><a href='/'>Home</a></li>
+        <li><a href='/'>Home</a></li>,
+        <li><a href='/Login'>Login</a></li>
     ]
 
     return (
