@@ -3,12 +3,18 @@ import img from '../../../images/favicon.png';
 import { AuthContext } from '../../../Context/AuthContextProvider/AuthContextProvider';
 
 const Header = () => {
-    const { user } = useContext(AuthContext)
+    const { user, logout } = useContext(AuthContext)
 
     const navbarMenu = [
         <li key={1}><a href='/'>Home</a></li>,
         user ? <li key={2}></li> : <><li key={2}><a href='/Login'>Login</a></li><li key={3}><a href='/register'>Register</a></li></>
     ]
+
+    const handleLogOut = () => {
+        logout()
+        .then(() => {})
+        .catch(err => console.log(err))
+    }
 
     return (
         <div className="navbar">
@@ -38,6 +44,7 @@ const Header = () => {
                     user ? <>
                        <div className="tooltip tooltip-left flex items-center mx-3" data-tip={user.displayName}>
                             <img className='mask mask-circle mx-2 w-14' src={user.photoURL} alt="" />
+                            <button className='btn btn-outline btn-primary' onClick={handleLogOut}>LogOut</button>
                         </div>
                     </> : ""
                 }

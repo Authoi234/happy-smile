@@ -1,5 +1,6 @@
 import React from 'react';
-import { FaSyringe, FaTeeth } from "react-icons/fa6";
+import { FaSyringe, FaTeeth, FaTooth } from "react-icons/fa6";
+import { LiaToothSolid } from "react-icons/lia";
 
 const OurDantalTreatments = () => {
     return (
@@ -22,17 +23,17 @@ const OurDantalTreatments = () => {
                         </div>
                     </div>
                     <div className="flex border border-slate-600 shadow-md shadow-slate-700 p-5" data-aos='flip-right'>
-                    <FaSyringe className='text-8xl'></FaSyringe>
+                    <FaTooth className='text-8xl'></FaTooth>
                         <div>
-                            <h1 className='text-2xl text-white'>Dental Anxiety</h1>
-                            <p className='text-xl text-gray-500'>We offer a range of services to help you overcome fear and finally enjoy good oral health.</p>
+                            <h1 className='text-2xl text-white'>Tooth Pain</h1>
+                            <p className='text-xl text-gray-500'>Toothache can be caused by various problems. An examination can help to determine it.</p>
                         </div>
                     </div>
                     <div className="flex border border-slate-600 shadow-md shadow-slate-700 p-5" data-aos='flip-left'>
-                    <FaSyringe className='text-8xl'></FaSyringe>
+                    <LiaToothSolid className='text-8xl'></LiaToothSolid>
                         <div>
-                            <h1 className='text-2xl text-white'>Dental Anxiety</h1>
-                            <p className='text-xl text-gray-500'>We offer a range of services to help you overcome fear and finally enjoy good oral health.</p>
+                            <h1 className='text-2xl text-white'>Periodontal Disease</h1>
+                            <p className='text-xl text-gray-500'>We offer a variety of periodontal treatments, customized for your specific health needs.</p>
                         </div>
                     </div>
                 </div>
