@@ -46,9 +46,9 @@ const SingleServiceDetails = () => {
                         }
                     </div>
                     <button className='btn btn-primary text-white' onClick={displayHandler} style={seeAllStyle}>See All</button>
-                    {user ? <div>
+                    {user ? <div className='flex justify-center items-start'>
                         <textarea name="" id="" cols="60" rows="6"></textarea>
-                        <button type="submit" className='btn'>Submit</button>
+                        <button type="submit" className='btn w-40 mx-2'>Submit</button>
                     </div> 
                     :
                     <div className='text-center'>
