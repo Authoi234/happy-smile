@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react';
 import { FaEyeSlash } from "react-icons/fa6";
 import { FaEye } from "react-icons/fa6";
 import { AuthContext } from '../../Context/AuthContextProvider/AuthContextProvider';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { FaGoogle } from "react-icons/fa6";
 
 const Login = () => {
@@ -11,6 +11,11 @@ const Login = () => {
     const [inputType, setInputType] = useState('password');
     const [icon, setIcon] = useState(<FaEyeSlash></FaEyeSlash>);
     const [error, setError] = useState('');
+
+    const navigate = useNavigate();
+    const location = useLocation();
+
+    const form = location.state?.from?.pathname || '/'
     
     const handleLogin = event => {
         event.preventDefault();
@@ -21,6 +26,7 @@ const Login = () => {
             .then(result => {
                 console.log(result.user);
                 form.reset();
+                navigate(form);
             })
             .catch(err => {
                 setError(err.message);
@@ -32,6 +38,7 @@ const Login = () => {
             .then(result => {
                 const user = result.user;
                 console.log(user);
+                navigate(form);
             })
             .catch(err => {
                 setError(err);
