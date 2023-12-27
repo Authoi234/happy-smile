@@ -1,8 +1,10 @@
-import React, { useEffect, useState } from 'react';
-import { useLoaderData } from 'react-router-dom';
+import React, { useContext, useEffect, useState } from 'react';
+import { useLoaderData, Link } from 'react-router-dom';
 import SingleReview from '../../Shared/SingleReview/SingleReview';
+import { AuthContext } from '../../../Context/AuthContextProvider/AuthContextProvider';
 
 const SingleServiceDetails = () => {
+    const { user } = useContext(AuthContext);
     const service = useLoaderData();
     const [reviews, setReviews] = useState([]);
     const [isStack, setIsStack] = useState('stack');
@@ -44,6 +46,15 @@ const SingleServiceDetails = () => {
                         }
                     </div>
                     <button className='btn btn-primary text-white' onClick={displayHandler} style={seeAllStyle}>See All</button>
+                    {user ? <div>
+                        <textarea name="" id="" cols="60" rows="6"></textarea>
+                        <button type="submit" className='btn'>Submit</button>
+                    </div> 
+                    :
+                    <div className='text-center'>
+                        <h1 className="text-3xl text-white">Please <span className="text-orange-600"><Link to={'/login'}>Login</Link></span> To Add A Review</h1>
+                    </div>
+                    }
                 </div>
             </div>
         </div>
