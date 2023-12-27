@@ -1,6 +1,7 @@
 import Services from "./Pages/Home/Services/Services";
 import SingleServiceDetails from "./Pages/Home/Services/SingleServiceDetails";
 import Login from "./Pages/Login/Login";
+import MyReviews from "./Pages/MyReviews/MyReviews";
 import Register from "./Pages/Register/Register";
 
 const { createBrowserRouter } = require("react-router-dom");
@@ -33,6 +34,10 @@ export const router = createBrowserRouter([
                 path: '/register',
                 element: <Register></Register>
             },
+            {
+                path: '/myReviews',
+                element: <MyReviews></MyReviews>
+            }
         ]
     }
 ])

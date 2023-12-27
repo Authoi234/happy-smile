@@ -11,7 +11,7 @@ const Login = () => {
     const [inputType, setInputType] = useState('password');
     const [icon, setIcon] = useState(<FaEyeSlash></FaEyeSlash>);
     const [error, setError] = useState('');
-
+    
     const handleLogin = event => {
         event.preventDefault();
         const form = event.target;
@@ -29,13 +29,13 @@ const Login = () => {
 
     const handleGoogleLogin = () => {
         googleSignIn()
-        .then(result => {
-            const user = result.user;
-            console.log(user);
-        })
-        .catch(err => {
-            setError(err);
-        })
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+            })
+            .catch(err => {
+                setError(err);
+            })
     }
 
     const handlePasswordVisible = () => {
@@ -50,7 +50,6 @@ const Login = () => {
             setInputType('password');
         }
     }
-
     return (
         <div className="hero bg-base-200 py-5">
             <div className="hero-content flex-col lg:flex-row-reverse">

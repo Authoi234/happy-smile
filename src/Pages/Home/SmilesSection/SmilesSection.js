@@ -2,7 +2,7 @@ import React from 'react';
 
 const SmilesSection = () => {
     return (
-        <div>
+        <div data-aos="flip-right">
             <div className="p-10 hero mb-5 bg-gradient-to-tl from-slate-800 via-slate-900 to-gray-950" style={{clipPath: 'polygon(0 89%, 10% 94%, 32% 96%, 51% 94%, 71% 91%, 100% 95%, 100% 0,0 0, 0 30%)'}}>
                 <div className="hero-content flex-col lg:flex-row">
                     <img src="https://i.ibb.co/GQnfxm7/portrait-young-happy-teen-boy-looking-camera-186202-5737.jpg" className="max-w-sm rounded-full shadow-2xl" alt='A boy is smiling'  data-aos='fade-right' />

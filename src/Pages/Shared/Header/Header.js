@@ -1,13 +1,16 @@
 import React, { useContext } from 'react';
 import img from '../../../images/favicon.png';
 import { AuthContext } from '../../../Context/AuthContextProvider/AuthContextProvider';
+import { FaUser } from "react-icons/fa6";
 
 const Header = () => {
     const { user, logout } = useContext(AuthContext)
 
     const navbarMenu = [
         <li key={1}><a href='/'>Home</a></li>,
-        user ? <li key={2}></li> : <><li key={2}><a href='/Login'>Login</a></li><li key={3}><a href='/register'>Register</a></li></>
+        user ? <>
+        <li key={2}><a href='/myReviews'>My Reviews</a></li>
+        </> : <><li key={2}><a href='/Login'>Login</a></li><li key={3}><a href='/register'>Register</a></li></>
     ]
 
     const handleLogOut = () => {
@@ -43,7 +46,7 @@ const Header = () => {
                 {
                     user ? <>
                        <div className="tooltip tooltip-left flex items-center mx-3" data-tip={user.displayName}>
-                            <img className='mask mask-circle mx-2 w-14' src={user.photoURL} alt="" />
+                            { user.photoURL === '' ? <img className='mask mask-circle mx-2 w-14' src={user.photoURL} alt="" /> : <FaUser className='w-8 mx-2 border rounded-full py-1 text-3xl text-white bg-cyan-500'></FaUser>}
                             <button className='btn btn-outline btn-primary' onClick={handleLogOut}>LogOut</button>
                         </div>
                     </> : ""

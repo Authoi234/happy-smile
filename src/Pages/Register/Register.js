@@ -22,6 +22,7 @@ const Register = () => {
             .then(result => {
                 handleUpdateUserProfile(name, photoURL);
                 console.log(result.user);
+                event.target.reset();
             })
             .catch(err => {
                 setError(err.message);
