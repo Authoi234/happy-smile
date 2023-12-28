@@ -49,7 +49,7 @@ const Header = () => {
                            
                             {/* : <FaUser className='w-8 mx-2 border rounded-full py-1 text-3xl text-white bg-cyan-500'></FaUser>} */}
                             {
-                                (user.photoURL === '') === false ? <img className='mask mask-circle mx-2 w-14' src={user.photoURL} alt="" /> : <FaUser className='w-8 mx-2 border rounded-full py-1 text-3xl text-white bg-cyan-500'></FaUser> 
+                               <img className='mask mask-circle mx-2 w-14' src={user.photoURL} alt="" /> 
                             }
                             <button className='btn btn-outline btn-primary' onClick={handleLogOut}>LogOut</button>
                         </div>
