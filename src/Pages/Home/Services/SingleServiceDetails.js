@@ -49,6 +49,7 @@ const SingleServiceDetails = () => {
                 if (data.acknowledged) {
                     document.getElementById('my_modal_1').showModal();
                 }
+                form.reset();
                 console.log(data);
             })
             .catch(err => console.error(err))
