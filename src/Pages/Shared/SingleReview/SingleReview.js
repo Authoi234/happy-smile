@@ -7,7 +7,7 @@ const SingleReview = ({ reviewData, bg }) => {
         <div className={`card my-4 flex border p-5 ${bg}`}>
             <div className="avatar flex justify-start items-center">
                 <div className="w-16 rounded-full mr-3">
-                    <img src={img} alt="Tailwind-CSS-Avatar-component" />
+                    <img src={img} alt='' />
                 </div>
                 <p className='text-xl text-white font-bold'>{name}</p>
             </div>

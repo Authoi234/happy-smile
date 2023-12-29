@@ -1,16 +1,17 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { FaAngleDown } from "react-icons/fa6";
 import { FaEdit } from "react-icons/fa";
-import { IoClose } from "react-icons/io5";
+import { MdDelete } from "react-icons/md";
+import { AuthContext } from '../../Context/AuthContextProvider/AuthContextProvider';
 
-const SingleReviewTableRow = ({ review }) => {
+const SingleReviewTableRow = ({ review, handleDelete }) => {
     return (
         <tr>
             <td>
                 <div className="flex items-center gap-3">
                     <div className="avatar">
                         <div className="mask mask-circle w-12 h-12">
-                            <img src={`https://i.ibb.co/0y1sSV6/360-F-121968922-wmywsff9-Tg-POAn33-Oh-GF5sh02gv4cy8-O.jpg`} alt="Avatar Tailwind CSS Component" />
+                            <img src={`https://i.ibb.co/0y1sSV6/360-F-121968922-wmywsff9-Tg-POAn33-Oh-GF5sh02gv4cy8-O.jpg`} alt="" />
                         </div>
                     </div>
                     <div>
@@ -24,8 +25,8 @@ const SingleReviewTableRow = ({ review }) => {
                 <span className="badge badge-ghost badge-sm">{review.email}</span>
             </td>
             <td>
-                <div className="avatar mask mask-circle w-12 h-12">
-                    <img src={review.img} alt="Avatar Tailwind CSS Component" />
+                <div className="avatar mask mask-circle w-14 h-14">
+                    <img src={review.img} alt="" />
                 </div>
             </td>
             <th>
@@ -42,10 +43,10 @@ const SingleReviewTableRow = ({ review }) => {
             <th>
                 <div className='flex'>
                     <label>
-                        <button className='btn btn-circle btn-ghost mr-2 text-2xl'><IoClose></IoClose></button>
+                        <button className='btn btn-circle btn-ghost mr-2 text-2xl' onClick={() => handleDelete(review._id)}><MdDelete></MdDelete></button>
                     </label>
                     <label>
-                        <button className='btn btn-circle btn-ghost text-2xl'><FaEdit></FaEdit></button>
+                        <button className='btn btn-circle btn-ghost ml-2 text-2xl'><FaEdit></FaEdit></button>
                     </label>
                 </div>
             </th>
