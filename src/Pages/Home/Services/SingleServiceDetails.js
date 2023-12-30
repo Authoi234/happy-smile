@@ -82,7 +82,9 @@ const SingleServiceDetails = () => {
                             reviews.map(review => <SingleReview key={review._id} bg={isStack === 'stack' ? 'bg-slate-700' : ''} reviewData={review}></SingleReview>)
                         }
                     </div>
-                    <button className='btn btn-primary text-white' onClick={displayHandler} style={seeAllStyle}>See All</button>
+                    {
+                        reviews.length === 0 ? '' : <button className='btn btn-primary text-white' onClick={displayHandler} style={seeAllStyle}>See All</button>
+                    }
                     {user ? <form onSubmit={handleSubmitReview} className='flex justify-center items-start'>
                         <textarea name="reviewText" cols="58" rows="5.5" placeholder='Write Your Review Here' className='text-center py-3 px-3'></textarea>
                         <input type="submit" className='btn w-40 mx-2' value="Submit"></input>
