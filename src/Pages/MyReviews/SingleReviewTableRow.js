@@ -1,10 +1,9 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { FaAngleDown } from "react-icons/fa6";
 import { FaEdit } from "react-icons/fa";
 import { MdDelete } from "react-icons/md";
-import { AuthContext } from '../../Context/AuthContextProvider/AuthContextProvider';
 
-const SingleReviewTableRow = ({ review, handleDelete }) => {
+const SingleReviewTableRow = ({ review, handleDelete, handleUpdate }) => {
     return (
         <tr>
             <td>
@@ -46,10 +45,24 @@ const SingleReviewTableRow = ({ review, handleDelete }) => {
                         <button className='btn btn-circle btn-ghost mr-2 text-2xl' onClick={() => handleDelete(review._id)}><MdDelete></MdDelete></button>
                     </label>
                     <label>
-                        <button className='btn btn-circle btn-ghost ml-2 text-2xl'><FaEdit></FaEdit></button>
+                        <button className='btn btn-circle btn-ghost ml-2 text-2xl' onClick={() => document.getElementById('my_modal_2').showModal()}><FaEdit></FaEdit></button>
                     </label>
                 </div>
             </th>
+            <dialog id="my_modal_2" className="modal">
+                <div className="modal-box">
+                    <h3 className="font-bold text-lg">Hello!</h3>
+                    <p className="py-4">Press ESC key or click the button below to close</p>
+                    <div>
+                        <form className='flex items-center' onSubmit={handleUpdate}>
+                            <textarea className='mx-2' name="updatedText" placeholder='Write Your Review Here' cols="30" rows="4"></textarea>
+                            <input type='text' defaultValue={review._id} readOnly className='w-0 h-1' name='id' />
+                            <input type='submit' value="Update" className='btn mx-2' />
+                        </form>
+                        <form method='dialog'><button className='btn my-4'>Cancel</button></form>
+                    </div>
+                </div>
+            </dialog>
         </tr>
     );
 };

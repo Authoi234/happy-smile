@@ -10,7 +10,8 @@ const Header = () => {
         <li key={1}><a href='/'>Home</a></li>,
         user ? <>
         <li key={2}><a href='/myReviews'>My Reviews</a></li>
-        </> : <><li key={2}><a href='/Login'>Login</a></li><li key={3}><a href='/register'>Register</a></li></>
+        <li key={3}><a href='/addServices'>Add Services</a></li>
+        </> : <><li key={4}><a href='/Login'>Login</a></li><li key={5}><a href='/register'>Register</a></li></>
     ]
 
     const handleLogOut = () => {

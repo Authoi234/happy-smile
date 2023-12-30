@@ -13,6 +13,33 @@ const MyReviews = () => {
             .then(data => setReviews(data))
     }, [email, user])
 
+    const handleUpdate = (event) => {
+        event.preventDefault();
+
+        const form = event.target;
+        const updatedReview = form.updatedText.value;
+        const id = form.id.value;
+        fetch(`http://localhost:5000/myreviews/${id}`, {
+            method: 'PATCH',
+            headers: {
+                "content-type": "application/json"
+            },
+            body: JSON.stringify({ review: updatedReview })
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.modifiedCount > 0) {
+                    const remaining = reviews.filter(review => review._id !== id);
+                    const updated = reviews.find(review => review._id === id);
+                    updated.review = updatedReview;
+                    const newReviews = [updated, ...remaining];
+                    setReviews(newReviews);
+                    document.getElementById('my_modal_2').close();
+                }
+            })
+            .catch(err => console.error(err))
+    }
+
     const handleDelete = (id) => {
         fetch(`http://localhost:5000/myreviews/${id}`, {
             method: 'DELETE'
@@ -52,7 +79,7 @@ const MyReviews = () => {
                             </tr>
                         </thead>
                         {
-                            reviews.map(review => <SingleReviewTableRow review={review} key={review._id} handleDelete={handleDelete}></SingleReviewTableRow>)
+                            reviews.map(review => <SingleReviewTableRow review={review} key={review._id} handleDelete={handleDelete} handleUpdate={handleUpdate}></SingleReviewTableRow>)
                         }
                     </table>
                 </div>
