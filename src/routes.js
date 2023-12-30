@@ -1,4 +1,5 @@
 import AddServices from "./Pages/AddServices/AddServices";
+import Blog from "./Pages/Home/Blog/Blog";
 import Services from "./Pages/Home/Services/Services";
 import SingleServiceDetails from "./Pages/Home/Services/SingleServiceDetails";
 import Login from "./Pages/Login/Login";
@@ -43,6 +44,10 @@ export const router = createBrowserRouter([
             {
                 path: '/addServices',
                 element: <PrivateRoute><AddServices></AddServices></PrivateRoute>
+            },
+            {
+                path: '/blog',
+                element: <Blog></Blog>
             }
         ]
     }

@@ -8,6 +8,7 @@ const Header = () => {
 
     const navbarMenu = [
         <li key={1}><a href='/'>Home</a></li>,
+        <li key={1}><a href='/blog'>Blog</a></li>,
         user ? <>
         <li key={2}><a href='/myReviews'>My Reviews</a></li>
         <li key={3}><a href='/addServices'>Add Services</a></li>
