@@ -10,7 +10,11 @@ const MyReviews = () => {
     useSetTitle('My Reviews');
 
     useEffect(() => {
-        fetch(`http://localhost:5000/myreviews/${email}`)
+        fetch(`http://localhost:5000/myreviews/${email}`, {
+            headers: {
+                jwtauthorization : `Bearer ${localStorage.getItem('happy-smile-token')}`
+            }
+        })
             .then(res => res.json())
             .then(data => setReviews(data))
     }, [email, user])

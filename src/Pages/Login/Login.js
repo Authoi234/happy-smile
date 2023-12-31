@@ -32,8 +32,26 @@ const Login = () => {
                     setLoading(false);
                 }, 1000);
                 console.log(result.user);
-                form.reset();
-                navigate(from);
+                const user = result.user;
+                const userEmail = {
+                    email: user.email
+                };
+
+                // JWT TOKEN
+                fetch('http://localhost:5000/jwt', {
+                    method: 'POST',
+                    headers: {
+                        "content-type": "application/json"
+                    },
+                    body: JSON.stringify(userEmail)
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        form.reset();
+                        navigate(from);
+                    })
+
+
             })
             .catch(err => {
                 setError(err.message);
