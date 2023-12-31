@@ -15,6 +15,7 @@ const MyReviews = () => {
             .then(data => setReviews(data))
     }, [email, user])
 
+    // handling updating the review
     const handleUpdate = (event) => {
         event.preventDefault();
 
@@ -42,6 +43,7 @@ const MyReviews = () => {
             .catch(err => console.error(err))
     }
 
+    // handling delete the review
     const handleDelete = (id) => {
         fetch(`http://localhost:5000/myreviews/${id}`, {
             method: 'DELETE'
@@ -58,6 +60,7 @@ const MyReviews = () => {
 
     return (
         <div>
+            {/* Review deleted modal */}
             <dialog id="my_modal_1" className="modal">
                 <div className="modal-box">
                     <h3 className="font-bold text-lg">Successfully Review Deleted.</h3>
@@ -68,6 +71,7 @@ const MyReviews = () => {
                     </div>
                 </div>
             </dialog>
+
             {
                 reviews.length !== 0 ? <div className="overflow-x-auto my-10">
                     <table className="table">

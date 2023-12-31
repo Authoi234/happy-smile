@@ -1,9 +1,7 @@
 import React from 'react';
-import { PhotoProvider, PhotoView } from 'react-photo-view';
 import { Link } from 'react-router-dom';
 
 const SingleService = ({ service }) => {
-    // console.log(service);
     return (
         <div className="card w-96 bg-base-200 shadow-xl shadow-slate-500 mb-5" data-aos="flip-left">
             <figure>

@@ -14,6 +14,7 @@ const Register = () => {
     const [error, setError] = useState('');
     useSetTitle('Register -')
 
+    // Handling Submit the form
     const handleRegister = event => {
         event.preventDefault();
         const name = event.target.name.value;
@@ -33,6 +34,7 @@ const Register = () => {
             })
     }
 
+    // Handling update users profile
     const handleUpdateUserProfile = (name, photoURL) => {
         const profile = {
             displayName: name,
@@ -40,10 +42,11 @@ const Register = () => {
         }
 
         updateUser(profile)
-            .then(() => {  })
+            .then(() => { })
             .catch((err) => console.error(err))
     }
 
+    // handling passowrd visible system
     const handlePasswordVisible = () => {
         if (!clicked) {
             setClicked(true);

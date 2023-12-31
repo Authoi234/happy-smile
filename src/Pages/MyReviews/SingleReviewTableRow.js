@@ -6,6 +6,7 @@ import { MdDelete } from "react-icons/md";
 const SingleReviewTableRow = ({ review, handleDelete, handleUpdate }) => {
     return (
         <tr>
+            {/* teeth icon and service name */}
             <td>
                 <div className="flex items-center gap-3">
                     <div className="avatar">
@@ -19,15 +20,18 @@ const SingleReviewTableRow = ({ review, handleDelete, handleUpdate }) => {
                     </div>
                 </div>
             </td>
+            {/* users email and name */}
             <td>
                 <div className='font-bold text-white text-lg'>{review.name}</div>
                 <span className="badge badge-ghost badge-sm">{review.email}</span>
             </td>
+            {/* users atavar */}
             <td>
                 <div className="avatar mask mask-circle w-14 h-14">
                     <img src={review.img} alt="" />
                 </div>
             </td>
+            {/* users review */}
             <th>
                 <div className="collapse w-48 bg-slate-800">
                     <input type="checkbox" />
@@ -39,6 +43,7 @@ const SingleReviewTableRow = ({ review, handleDelete, handleUpdate }) => {
                     </div>
                 </div>
             </th>
+            {/* updpate and delete icon */}
             <th>
                 <div className='flex'>
                     <label>
@@ -49,6 +54,8 @@ const SingleReviewTableRow = ({ review, handleDelete, handleUpdate }) => {
                     </label>
                 </div>
             </th>
+
+            {/* Review Update Modal */}
             <dialog id="my_modal_2" className="modal">
                 <div className="modal-box">
                     <h3 className="font-bold text-lg">Hello!</h3>

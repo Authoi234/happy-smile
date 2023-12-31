@@ -19,6 +19,7 @@ const SingleServiceDetails = () => {
             .catch(error => console.log(error))
     }, [serviceDetail._id, reviews])
 
+    // Handling submit a new review
     const handleSubmitReview = event => {
         event.preventDefault();
         const form = event.target;
@@ -52,11 +53,12 @@ const SingleServiceDetails = () => {
                     document.getElementById('my_modal_1').showModal();
                 }
                 form.reset();
-                console.log(data);
+                // console.log(data);
             })
             .catch(err => console.error(err))
     }
 
+    // Handling display stack
     const displayHandler = () => {
         setSeeAllStyle({ display: 'none' });
         setIsStack('');
@@ -96,6 +98,8 @@ const SingleServiceDetails = () => {
                             <h1 className="text-3xl text-white">Please <span className="text-orange-600"><Link to={'/login'}>Login</Link></span> To Add A Review</h1>
                         </div>
                     }
+
+                    {/* Review added modal */}
                     <dialog id="my_modal_1" className="modal">
                         <div className="modal-box">
                             <h3 className="font-bold text-center text-lg text-white">Review Successfully Added</h3>

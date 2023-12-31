@@ -17,7 +17,8 @@ const Login = () => {
     useSetTitle('Login -')
 
     const from = location.state?.from?.pathname || '/';
-    
+
+    // handle input submit
     const handleLogin = event => {
         event.preventDefault();
         const form = event.target;
@@ -34,6 +35,7 @@ const Login = () => {
             })
     }
 
+    // handle google login
     const handleGoogleLogin = () => {
         googleSignIn()
             .then(result => {
@@ -45,6 +47,7 @@ const Login = () => {
             })
     }
 
+    // handle password visible system
     const handlePasswordVisible = () => {
         if (!clicked) {
             setClicked(true);
@@ -57,6 +60,7 @@ const Login = () => {
             setInputType('password');
         }
     }
+    
     return (
         <div className="hero bg-base-200 py-5">
             <div className="hero-content flex-col lg:flex-row-reverse">

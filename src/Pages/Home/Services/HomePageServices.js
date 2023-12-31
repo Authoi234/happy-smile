@@ -11,7 +11,7 @@ const HomePageServices = () => {
             .then(data => setServices(data))
     }, [])
 
-    console.log(services);
+    // console.log(services);
 
     return (
         <div>

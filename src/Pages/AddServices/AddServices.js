@@ -3,6 +3,8 @@ import useSetTitle from '../../customHooks/useSetTitle';
 
 const AddServices = () => {
     useSetTitle('Add Services')
+
+    // handling service
     const handleAddService = (event) => {
         event.preventDefault();
         const form = event.target;
