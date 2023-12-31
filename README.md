@@ -1,3 +1,26 @@
+# Happy Smile
+#### That is a awesome project.
+
+##### features and functionalities
+
+* This is a single page application
+* This is a secure website
+* You can secure your data by JWT
+* This the very comfortable website
+* You can authenticate and authorize in this website
+* All data come to this website from the own server
+* All data are stored in mongodb database
+* All things are dynamic
+* You can delete and edit you added reviews and that seems in full information
+* There are also added protected route
+* Configarations are protected of this website
+* There are also a blog page, where you can see answers of freqency asked questions
+* You can add your service
+* You can add review in any service
+* This is a very comfortable website
+
+### Live website Link is : (https://happy-smile-assignment.web.app/)
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
