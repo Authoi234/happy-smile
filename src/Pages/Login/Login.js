@@ -40,6 +40,7 @@ const Login = () => {
                 setLoading(false);
                 console.log(err);
             })
+        setLoading(false);
     }
 
     // handle google login
