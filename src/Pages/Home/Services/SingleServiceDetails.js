@@ -37,7 +37,8 @@ const SingleServiceDetails = () => {
             review: review,
             service: service,
             email: email,
-            serviceId: serviceId
+            serviceId: serviceId,
+            createdAt: new Date()
         };
 
         fetch('http://localhost:5000/reviews', {
