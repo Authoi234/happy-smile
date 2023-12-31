@@ -19,7 +19,7 @@
 * You can add review in any service
 * This is a very comfortable website
 
-### Live website Link is : (https://happy-smile-assignment.web.app/)
+### Live website Link is : https://happy-smile-assignment.web.app/
 
 # Getting Started with Create React App
 
