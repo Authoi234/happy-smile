@@ -1,15 +1,15 @@
-import AddServices from "./Pages/AddServices/AddServices";
-import Blog from "./Pages/Home/Blog/Blog";
-import Services from "./Pages/Home/Services/Services";
-import SingleServiceDetails from "./Pages/Home/Services/SingleServiceDetails";
-import Login from "./Pages/Login/Login";
-import MyReviews from "./Pages/MyReviews/MyReviews";
-import Register from "./Pages/Register/Register";
-import PrivateRoute from "./Pages/Shared/PrivateRoute/PrivateRoute";
+import AddServices from "../Pages/AddServices/AddServices";
+import Blog from "../Pages/Home/Blog/Blog";
+import Services from "../Pages/Home/Services/Services";
+import SingleServiceDetails from "../Pages/Home/Services/SingleServiceDetails";
+import Login from "../Pages/Login/Login";
+import MyReviews from "../Pages/MyReviews/MyReviews";
+import Register from "../Pages/Register/Register";
+import PrivateRoute from "../Pages/Shared/PrivateRoute/PrivateRoute";
 
 const { createBrowserRouter } = require("react-router-dom");
-const { default: Main } = require("./layout/Main");
-const { default: Home } = require("./Pages/Home/Home/Home");
+const { default: Main } = require("../layout/Main");
+const { default: Home } = require("../Pages/Home/Home/Home");
 
 export const router = createBrowserRouter([
     {
