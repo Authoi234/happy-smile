@@ -4,6 +4,7 @@ import { FaEye } from "react-icons/fa6";
 import { AuthContext } from '../../Context/AuthContextProvider/AuthContextProvider';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { FaGoogle } from "react-icons/fa6";
+import useSetTitle from '../../customHooks/useSetTitle';
 
 const Login = () => {
     const { EmailPasswordSignIn, googleSignIn } = useContext(AuthContext);
@@ -13,6 +14,7 @@ const Login = () => {
     const [error, setError] = useState('');
     const navigate = useNavigate();
     const location = useLocation();
+    useSetTitle('Login -')
 
     const from = location.state?.from?.pathname || '/';
     

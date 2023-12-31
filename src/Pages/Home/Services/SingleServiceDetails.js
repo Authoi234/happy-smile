@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { useLoaderData, Link } from 'react-router-dom';
 import SingleReview from '../../Shared/SingleReview/SingleReview';
 import { AuthContext } from '../../../Context/AuthContextProvider/AuthContextProvider';
+import useSetTitle from '../../../customHooks/useSetTitle';
 
 const SingleServiceDetails = () => {
     const { user } = useContext(AuthContext);
@@ -9,6 +10,7 @@ const SingleServiceDetails = () => {
     const [reviews, setReviews] = useState([]);
     const [isStack, setIsStack] = useState('stack');
     const [seeAllStyle, setSeeAllStyle] = useState({ display: 'flex' })
+    useSetTitle(`${serviceDetail.name} -`)
 
     useEffect(() => {
         fetch(`http://localhost:5000/reviews/${serviceDetail._id}`)

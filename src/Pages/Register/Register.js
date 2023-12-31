@@ -2,14 +2,17 @@ import React, { useContext, useState } from 'react';
 import { FaEyeSlash } from 'react-icons/fa6';
 import { FaEye } from 'react-icons/fa6';
 import { AuthContext } from '../../Context/AuthContextProvider/AuthContextProvider';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import useSetTitle from '../../customHooks/useSetTitle';
 
 const Register = () => {
     const { EmailPasswordRegister, updateUser } = useContext(AuthContext);
     const [clicked, setClicked] = useState(false);
+    const navigate = useNavigate();
     const [inputType, setInputType] = useState('password');
     const [icon, setIcon] = useState(<FaEyeSlash></FaEyeSlash>);
     const [error, setError] = useState('');
+    useSetTitle('Register -')
 
     const handleRegister = event => {
         event.preventDefault();
@@ -23,6 +26,7 @@ const Register = () => {
                 handleUpdateUserProfile(name, photoURL);
                 console.log(result.user);
                 event.target.reset();
+                navigate('/');
             })
             .catch(err => {
                 setError(err.message);

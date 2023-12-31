@@ -1,18 +1,18 @@
 import React, { useContext } from 'react';
 import img from '../../../images/favicon.png';
 import { AuthContext } from '../../../Context/AuthContextProvider/AuthContextProvider';
-import { FaUser } from "react-icons/fa6";
+import { Link } from 'react-router-dom';
 
 const Header = () => {
     const { user, logout } = useContext(AuthContext)
 
     const navbarMenu = [
-        <li key={1}><a href='/'>Home</a></li>,
-        <li key={1}><a href='/blog'>Blog</a></li>,
+        <li key={1}><Link to='/'>Home</Link></li>,
+        <li key={1}><Link to='/blog'>Blog</Link></li>,
         user ? <>
-        <li key={2}><a href='/myReviews'>My Reviews</a></li>
-        <li key={3}><a href='/addServices'>Add Services</a></li>
-        </> : <><li key={4}><a href='/Login'>Login</a></li><li key={5}><a href='/register'>Register</a></li></>
+        <li key={2}><Link to='/myReviews'>My Reviews</Link></li>
+        <li key={3}><Link to='/addServices'>Add Services</Link></li>
+        </> : <><li key={2}><Link to='/Login'>Login</Link></li><li key={3}><Link to='/register'>Register</Link></li></>
     ]
 
     const handleLogOut = () => {
@@ -57,7 +57,6 @@ const Header = () => {
                         </div>
                     </> : ""
                 }
-                <a href='/' className="btn btn-neutral" data-aos="zoom-in">Button</a>
             </div>
         </div>
     );

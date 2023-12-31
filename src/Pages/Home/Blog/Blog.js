@@ -1,6 +1,8 @@
 import React from 'react';
+import useSetTitle from '../../../customHooks/useSetTitle';
 
 const Blog = () => {
+    useSetTitle('Blogs')
     return (
         <div className='mt-5 mb-5'>
             <h1 className='text-5xl text-white my-3 font-bold'>Blogs</h1>

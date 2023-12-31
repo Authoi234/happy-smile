@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import toolsImg from '../../../images/teeth-dental-medical-equipment-steel-tools-set-realistic-1284-6589-removebg-preview.png';
 import SingleService from '../../Shared/SingleService/SingleService';
+import useSetTitle from '../../../customHooks/useSetTitle';
 
 const Services = () => {
     const [services, setServices] = useState([]);
+    useSetTitle('Services -')
 
     useEffect(() => {
         fetch(`http://localhost:5000/services`)
