@@ -42,7 +42,7 @@ const MyReviews = () => {
                     updated.review = updatedReview;
                     const newReviews = [updated, ...remaining];
                     setReviews(newReviews);
-                    document.getElementById('my_modal_2').close();
+                    document.getElementById('my_modal_reviewUpdate').close();
                 }
             })
             .catch(err => console.error(err))
@@ -57,7 +57,7 @@ const MyReviews = () => {
             .then(data => {
                 if (data.deletedCount > 0) {
                     const remainning = reviews.filter(review => review._id !== id);
-                    document.getElementById('my_modal_1').showModal();
+                    document.getElementById('my_modal_reviewDeleted').showModal();
                     setReviews(remainning);
                 }
             })
@@ -66,7 +66,7 @@ const MyReviews = () => {
     return (
         <div>
             {/* Review deleted modal */}
-            <dialog id="my_modal_1" className="modal">
+            <dialog id="my_modal_reviewDeleted" className="modal">
                 <div className="modal-box">
                     <h3 className="font-bold text-lg">Successfully Review Deleted.</h3>
                     <div className="modal-action">

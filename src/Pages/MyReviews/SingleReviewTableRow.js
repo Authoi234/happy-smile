@@ -50,13 +50,13 @@ const SingleReviewTableRow = ({ review, handleDelete, handleUpdate }) => {
                         <button className='btn btn-circle btn-ghost mr-2 text-2xl' onClick={() => handleDelete(review._id)}><MdDelete></MdDelete></button>
                     </label>
                     <label>
-                        <button className='btn btn-circle btn-ghost ml-2 text-2xl' onClick={() => document.getElementById('my_modal_2').showModal()}><FaEdit></FaEdit></button>
+                        <button className='btn btn-circle btn-ghost ml-2 text-2xl' onClick={() => document.getElementById('my_modal_reviewUpdate').showModal()}><FaEdit></FaEdit></button>
                     </label>
                 </div>
             </th>
 
             {/* Review Update Modal */}
-            <dialog id="my_modal_2" className="modal">
+            <dialog id="my_modal_reviewUpdate" className="modal">
                 <div className="modal-box">
                     <h3 className="font-bold text-lg">Hello!</h3>
                     <p className="py-4">Press ESC key or click the button below to close</p>

@@ -2,6 +2,10 @@
   text-align: center;
 }
 
+.hidden{
+  display: none;
+}
+
 .banner-bg-image {
   background-image: url('./images/Child-smiling.jpg');
   background-size: cover;

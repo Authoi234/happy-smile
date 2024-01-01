@@ -52,7 +52,7 @@ const SingleServiceDetails = () => {
             .then(res => res.json())
             .then(data => {
                 if (data.acknowledged) {
-                    document.getElementById('my_modal_1').showModal();
+                    document.getElementById('my_modal_reviewAdded').showModal();
                 }
                 form.reset();
                 // console.log(data);
@@ -102,7 +102,7 @@ const SingleServiceDetails = () => {
                     }
 
                     {/* Review added modal */}
-                    <dialog id="my_modal_1" className="modal">
+                    <dialog id="my_modal_reviewAdded" className="modal">
                         <div className="modal-box">
                             <h3 className="font-bold text-center text-lg text-white">Review Successfully Added</h3>
                             <div className="modal-action">
