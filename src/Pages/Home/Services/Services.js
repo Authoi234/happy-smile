@@ -40,7 +40,7 @@ const Services = () => {
 
                 : <section className='mx-5 mt-5 mb-5 grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2'>
                     <dialog id="my_modal_Img" style={{ width: 'auto', height: 'auto' }} className="w-1/2">
-                        <img className='' style={{width: '100%', height: '100%'}} src={modalImg} alt="" />
+                        <img style={{width: '100%', height: '100%'}} src={modalImg} alt="" />
                         <form method="dialog">
                             {/* if there is a button in form, it will close the modal */}
                             <button className="btn text-3xl absolute top-0"><IoMdClose></IoMdClose></button>
