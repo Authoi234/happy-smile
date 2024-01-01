@@ -47,7 +47,9 @@ const Login = () => {
                 })
                     .then(res => res.json())
                     .then(data => {
+                        setLoading(false);
                         form.reset();
+                        localStorage.setItem('happy-smile-token', data.userToken)
                         navigate(from);
                     })
 

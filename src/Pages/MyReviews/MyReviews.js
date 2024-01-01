@@ -17,6 +17,7 @@ const MyReviews = () => {
         })
             .then(res => res.json())
             .then(data => setReviews(data))
+            .catch(err => console.log(err))
     }, [email, user])
 
     // handling updating the review

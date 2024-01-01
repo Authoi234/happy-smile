@@ -6,15 +6,17 @@ import { Link } from 'react-router-dom';
 const Header = () => {
     const { user, logout } = useContext(AuthContext);
 
+    //  the menu of navbar
     const navbarMenu = [
         <li key={1}><Link to='/'>Home</Link></li>,
-        <li key={1}><Link to='/blog'>Blog</Link></li>,
+        <li key={2}><Link to='/blog'>Blog</Link></li>,
         user ? <>
-        <li key={2}><Link to='/myReviews'>My Reviews</Link></li>
-        <li key={3}><Link to='/addServices'>Add Services</Link></li>
-        </> : <><li key={2}><Link to='/Login'>Login</Link></li><li key={3}><Link to='/register'>Register</Link></li></>
+        <li key={3}><Link to='/myReviews'>My Reviews</Link></li>
+        <li key={4}><Link to='/addServices'>Add Services</Link></li>
+        </> : <><li key={3}><Link to='/Login'>Login</Link></li><li key={4}><Link to='/register'>Register</Link></li></>
     ];
 
+    // handling log out
     const handleLogOut = () => {
         logout()
         .then(() => {})

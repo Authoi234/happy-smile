@@ -4,8 +4,10 @@ import HomePageServices from '../Services/HomePageServices';
 import '../../../App.css';
 import SmilesSection from '../SmilesSection/SmilesSection';
 import OurDantalTreatments from '../OurDantalTreatments/OurDantalTreatments';
+import useSetTitle from '../../../customHooks/useSetTitle';
 
 const Home = () => {
+    useSetTitle('');
     return (
         <div>
             <div className='brightness-95 banner-bg-image'>
