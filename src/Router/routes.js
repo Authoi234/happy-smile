@@ -28,7 +28,7 @@ export const router = createBrowserRouter([
             {
                 path: '/services/:id',
                 element: <SingleServiceDetails></SingleServiceDetails>,
-                loader: ({params}) => fetch(`http://localhost:5000/services/${params.id}`)
+                loader: ({params}) => fetch(`https://happy-smile-server-667n33vco-authoi234s-projects.vercel.app/services/${params.id}`)
             },
             {
                 path: '/login',

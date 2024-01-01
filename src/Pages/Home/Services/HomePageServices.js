@@ -8,7 +8,7 @@ const HomePageServices = () => {
     const [modalImg, setModalImg] = useState('');
 
     useEffect(() => {
-        fetch('http://localhost:5000/services?limit=3')
+        fetch('https://happy-smile-server-667n33vco-authoi234s-projects.vercel.app/services?limit=3')
             .then(res => res.json())
             .then(data => setServices(data))
     }, [])

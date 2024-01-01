@@ -21,7 +21,7 @@ const AddServices = () => {
             createdAt: new Date()
         }
 
-        fetch('http://localhost:5000/addServices', {
+        fetch('https://happy-smile-server-667n33vco-authoi234s-projects.vercel.app/addServices', {
             method: 'POST',
             headers: {
                 "content-type" : "application/json",

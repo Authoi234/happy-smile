@@ -12,7 +12,7 @@ const Services = () => {
 
     useEffect(() => {
         setLoading(true);
-        fetch(`http://localhost:5000/services`)
+        fetch(`https://happy-smile-server-667n33vco-authoi234s-projects.vercel.app/services`)
             .then(res => res.json())
             .then(data => {
                 setServices(data);

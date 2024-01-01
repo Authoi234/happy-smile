@@ -38,7 +38,7 @@ const Login = () => {
                 };
 
                 // JWT TOKEN
-                fetch('http://localhost:5000/jwt', {
+                fetch('https://happy-smile-server-667n33vco-authoi234s-projects.vercel.app/jwt', {
                     method: 'POST',
                     headers: {
                         "content-type": "application/json"
