@@ -19,6 +19,7 @@ const Register = () => {
     const handleRegister = event => {
         setLoading(true);
         event.preventDefault();
+        const form = event.target;
         const name = event.target.name.value;
         const photoURL = event.target.photoURL.value;
         const email = event.target.email.value;
@@ -26,13 +27,37 @@ const Register = () => {
 
         EmailPasswordRegister(email, password)
             .then(result => {
-                setTimeout(() => {
-                    setLoading(false);
-                }, 1000);
-                handleUpdateUserProfile(name, photoURL);
-                console.log(result.user);
-                event.target.reset();
-                navigate('/');
+      
+                const user = result.user;
+                const userEmail = {
+                    email: user.email
+                };
+
+                // JWT TOKEN
+                fetch('http://localhost:5000/jwt', {
+                    method: 'POST',
+                    headers: {
+                        "content-type": "application/json"
+                    },
+                    body: JSON.stringify(userEmail)
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        setLoading(false);
+                        form.reset();
+                        localStorage.setItem('happy-smile-token', data.userToken)
+                        setTimeout(() => {
+                            setLoading(false);
+                        }, 1000);
+                        handleUpdateUserProfile(name, photoURL);
+                        console.log(result.user);
+                        event.target.reset();
+                        navigate('/');
+                    })
+                    .catch(err => {
+                        // console.log(err);
+                        navigate('/');
+                    })
             })
             .catch(err => {
                 setError(err.message);

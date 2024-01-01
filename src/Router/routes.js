@@ -9,7 +9,7 @@ import PrivateRoute from "../Pages/Shared/PrivateRoute/PrivateRoute";
 
 const { default: Main } = require("../layout/Main");
 const { default: Home } = require("../Pages/Home/Home/Home");
-const { createBrowserRouter } = require("react-router-dom");
+const { createBrowserRouter, Link } = require("react-router-dom");
 
 // creating router
 export const router = createBrowserRouter([
@@ -49,6 +49,10 @@ export const router = createBrowserRouter([
             {
                 path: '/blog',
                 element: <Blog></Blog>
+            },
+            {
+                path: '*',
+                element: <div className="flex justify-center items-center my-20"><h1 className="text-5xl font-bold text-red-600">Nothing to see Here. Go Back <Link className="text-blue-600" to={'/'}>Home</Link></h1></div>
             }
         ]
     }

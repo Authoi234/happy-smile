@@ -12,7 +12,7 @@ const SingleService = ({ service, imgViewModal }) => {
                     </div>
             </figure>
             <div className="card-body justify-center">
-                <h2 className="text-3xl font-bold font-serif">{service.name}</h2>
+                <h2 className="text-3xl font-bold font-serif">{service.name}</h2>   
                 <p>{
                     service.details ? service.details.slice(0, 130) + '....' : ''
                 }</p>

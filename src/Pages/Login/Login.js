@@ -52,6 +52,10 @@ const Login = () => {
                         localStorage.setItem('happy-smile-token', data.userToken)
                         navigate(from);
                     })
+                    .catch(err => {
+                        // console.log(err);
+                        navigate('/');
+                    })
 
 
             })
