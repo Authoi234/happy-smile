@@ -10,7 +10,7 @@ const MyReviews = () => {
     useSetTitle('My Reviews');
 
     useEffect(() => {
-        fetch(`https://happy-smile-server-667n33vco-authoi234s-projects.vercel.app/myreviews/${email}`, {
+        fetch(`https://happy-smile-server.vercel.app/myreviews/${email}`, {
             headers: {
                 jwtauthorization : `Bearer ${localStorage.getItem('happy-smile-token')}`
             }
@@ -27,7 +27,7 @@ const MyReviews = () => {
         const form = event.target;
         const updatedReview = form.updatedText.value;
         const id = form.id.value;
-        fetch(`https://happy-smile-server-667n33vco-authoi234s-projects.vercel.app/myreviews/${id}`, {
+        fetch(`https://happy-smile-server.vercel.app/myreviews/${id}`, {
             method: 'PATCH',
             headers: {
                 "content-type": "application/json"
@@ -50,7 +50,7 @@ const MyReviews = () => {
 
     // handling delete the review
     const handleDelete = (id) => {
-        fetch(`https://happy-smile-server-667n33vco-authoi234s-projects.vercel.app/myreviews/${id}`, {
+        fetch(`https://happy-smile-server.vercel.app/myreviews/${id}`, {
             method: 'DELETE'
         })
             .then(res => res.json())

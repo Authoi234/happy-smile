@@ -13,7 +13,7 @@ const SingleServiceDetails = () => {
     useSetTitle(`${serviceDetail.name} -`)
 
     useEffect(() => {
-        fetch(`https://happy-smile-server-667n33vco-authoi234s-projects.vercel.app/reviews/${serviceDetail._id}`)
+        fetch(`https://happy-smile-server.vercel.app/reviews/${serviceDetail._id}`)
             .then(res => res.json())
             .then(data => setReviews(data))
             .catch(error => console.log(error))
@@ -41,7 +41,7 @@ const SingleServiceDetails = () => {
             createdAt: new Date()
         };
 
-        fetch('https://happy-smile-server-667n33vco-authoi234s-projects.vercel.app/reviews', {
+        fetch('https://happy-smile-server.vercel.app/reviews', {
             method: 'POST',
             headers: {
                 "content-type": "application/json",

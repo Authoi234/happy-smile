@@ -12,13 +12,18 @@ const Services = () => {
 
     useEffect(() => {
         setLoading(true);
-        fetch(`https://happy-smile-server-667n33vco-authoi234s-projects.vercel.app/services`)
+        fetch(`https://happy-smile-server.vercel.app/services`)
             .then(res => res.json())
             .then(data => {
                 setServices(data);
                 setTimeout(() => {
                     setLoading(false);
                 }, 50);
+                console.log(data);
+            })
+            .catch(err => {
+                console.log(err);
+                setLoading(false)
             })
     }, [])
 
@@ -52,7 +57,8 @@ const Services = () => {
                     <div>
                         <img className='w-1/6 rotate-90 absolute top-0 left-0' src={toolsImg} alt="" />
                     </div>
-                </section>}
+                </section>
+            }
         </div>
     );
 };
