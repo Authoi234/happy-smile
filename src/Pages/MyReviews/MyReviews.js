@@ -90,7 +90,7 @@ const MyReviews = () => {
                             </tr>
                         </thead>
                         {
-                            reviews?.map(review => <SingleReviewTableRow review={review} key={review._id} handleDelete={handleDelete} handleUpdate={handleUpdate}></SingleReviewTableRow>)
+                            reviews.map(review => <SingleReviewTableRow review={review} key={review._id} handleDelete={handleDelete} handleUpdate={handleUpdate}></SingleReviewTableRow>)
                         }
                     </table>
                 </div>
