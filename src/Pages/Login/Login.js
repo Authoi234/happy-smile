@@ -7,7 +7,7 @@ import { FaGoogle } from "react-icons/fa6";
 import useSetTitle from '../../customHooks/useSetTitle';
 
 const Login = () => {
-    const { EmailPasswordSignIn, googleSignIn } = useContext(AuthContext);
+    const { EmailPasswordSignIn, googleSignIn, loading } = useContext(AuthContext);
     const [clicked, setClicked] = useState(false);
     const [inputType, setInputType] = useState('password');
     const [icon, setIcon] = useState(<FaEyeSlash></FaEyeSlash>);
@@ -15,22 +15,18 @@ const Login = () => {
     const navigate = useNavigate();
     const location = useLocation();
     useSetTitle('Login -');
-    const [loading, setLoading] = useState(false);
 
     const from = location.state?.from?.pathname || '/';
 
     // handle input submit
     const handleLogin = event => {
-        setLoading(true);
+        setError('');
         event.preventDefault();
         const form = event.target;
         const email = form.email.value;
         const password = form.password.value;
         EmailPasswordSignIn(email, password)
             .then(result => {
-                setTimeout(() => {
-                    setLoading(false);
-                }, 1000);
                 console.log(result.user);
                 const user = result.user;
                 const userEmail = {
@@ -47,13 +43,12 @@ const Login = () => {
                 })
                     .then(res => res.json())
                     .then(data => {
-                        setLoading(false);
                         form.reset();
                         localStorage.setItem('happy-smile-token', data.userToken)
                         navigate(from);
                     })
                     .catch(err => {
-                        // console.log(err);
+                        setError(err);
                         navigate('/');
                     })
 
@@ -61,25 +56,46 @@ const Login = () => {
             })
             .catch(err => {
                 setError(err.message);
-                setLoading(false);
                 console.log(err);
             })
-        setLoading(false);
     }
 
     // handle google login
     const handleGoogleLogin = () => {
+        setError('');
         googleSignIn()
             .then(result => {
+
+                console.log(result.user);
+
                 const user = result.user;
-                console.log(user);
+                const userEmail = {
+                    email: user.email
+                };
+                // JWT TOKEN
+                fetch('https://happy-smile-server.vercel.app/jwt', {
+                    method: 'POST',
+                    headers: {
+                        "content-type": "application/json"
+                    },
+                    body: JSON.stringify(userEmail)
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        localStorage.setItem('happy-smile-token', data.userToken)
+                        navigate(from);
+                    })
+                    .catch(err => {
+                        setError(err);
+                        navigate('/');
+                    })
             })
             .catch(err => {
                 setError(err);
             })
     }
 
-    // handle password visible system
+   // handle password visible system
     const handlePasswordVisible = () => {
         if (!clicked) {
             setClicked(true);

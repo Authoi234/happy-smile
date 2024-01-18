@@ -4,10 +4,10 @@ import SingleReviewTableRow from './SingleReviewTableRow';
 import useSetTitle from '../../customHooks/useSetTitle';
 
 const MyReviews = () => {
+    useSetTitle('My Reviews');
     const { user } = useContext(AuthContext);
     const [reviews, setReviews] = useState([]);
     const email = user.email;
-    useSetTitle('My Reviews');
 
     useEffect(() => {
         fetch(`https://happy-smile-server.vercel.app/myreviews/${email}`, {

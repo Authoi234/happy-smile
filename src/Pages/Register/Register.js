@@ -17,6 +17,7 @@ const Register = () => {
 
     // Handling Submit the form
     const handleRegister = event => {
+        setError('');
         setLoading(true);
         event.preventDefault();
         const form = event.target;
@@ -55,7 +56,7 @@ const Register = () => {
                         navigate('/');
                     })
                     .catch(err => {
-                        // console.log(err);
+                        setError(err);
                         navigate('/');
                     })
             })
